@@ -1,6 +1,6 @@
 import React from "react";
 
-const HistoryItem = ({ transaction }) => (
+const HistoryItem = ({ transaction, deleteHistoryItem }) => (
   <li
     className={`history__item ${
       transaction.add ? "history__item-plus" : "history__item-minus"
@@ -8,7 +8,12 @@ const HistoryItem = ({ transaction }) => (
   >
     {transaction.description}
     <span className="history__money">{transaction.amount} ₽</span>
-    <button className="history__delete">x</button>
+    <button
+      className="history__delete"
+      onClick={() => deleteHistoryItem(transaction.id)}
+    >
+      x
+    </button>
   </li>
 );
 
